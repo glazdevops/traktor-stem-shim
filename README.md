@@ -5,6 +5,9 @@ A small macOS shell automation  that downloads an MP3 from an authorized YouTube
 # Problem statement
 Traktor introduced native stem separation in [Traktor Pro 4](https://www.native-instruments.com/en/products/traktor/dj-software/traktor-pro-4/), however it is currently implemented in a rather cumbersome way. There is no external tool/cli one can run to run stem separation against many files at once, or a bulk option "Separate All", like it does for the admittedly much lighter-weight Beatgrid/BPM/key Analyze option. This utilitity is meant to streamline this process as much as possible, while still requiring some human interaction.
 
+## System Requirements
+YYMV. I am running a M1 Pro Macbook Pro w/ 14 cores, 512GB SSD, and 32GB ram and a 4 minute song typically takes ~ 1 minute to stem separate. For this setup, stem separation can occur during live performance without any studdering/audio drops.
+
 ## Use Only Authorized Downloads
 
 Use this utility only for audio you own or are explicitly allowed to download, such as your own uploads, public-domain works, or content whose license/creator expressly permits downloading. Free to stream or watch does not necessarily mean free to download. Follow the creator's license and YouTube's terms.
@@ -50,7 +53,7 @@ The default destination is `$HOME/Music/traktor_import`. A YouTube watch URL is 
 
 1. Find a track you are authorized to download on YouTube and copy its link.
     ![Finding a song in youtube](img/find-song-link.png)
-    
+
 2. Press `Cmd+1` to open your terminal, or whatever hotkey you use to open a terminal.
 3. Run `download-stem-track "<copied-link>"`. Keep the double quotes around the full link; they prevent shell-special characters such as `&` from being treated as separate commands.
 	![Running download-stem-track with a quoted YouTube URL](img/cli-command.png)
@@ -58,7 +61,7 @@ The default destination is `$HOME/Music/traktor_import`. A YouTube watch URL is 
 4. Switch to Traktor and press `Ctrl+F` to run **Import Music Folders**. The new track should appear in the collection.
 	![Imported track in the Traktor collection](img/import-in-traktor.png)
 
-5. Open the **Stems** smart playlist. Find tracks whose Label is `stem` and which do not yet show the stem icon. Select those tracks and press `Ctrl+G` to queue stem generation.
+5. Open the **Stems** smart playlist. Find tracks whose Label is `stem` and which do not yet show the stem icon. Select those tracks and press `Ctrl+G` to queue stem generation. You can Shift+Click to select many songs at once, and they should all queue up into stem separation background tasks.
 6. Once processing finishes, load the track into a deck to see and control its separated stems.
 	![Track loaded in a deck with separated stem waveforms](img/final-stem-separated.png)
 
